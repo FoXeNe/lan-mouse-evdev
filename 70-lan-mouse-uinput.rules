@@ -1,0 +1,2 @@
+# Let the active local session user open /dev/uinput (needed by lan-mouse evdev backend)
+KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
