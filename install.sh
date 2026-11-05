@@ -8,7 +8,7 @@ tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 
 url=$(curl -fsSL "https://api.github.com/repos/$repo/releases/latest" \
-  | grep -o '"browser_download_url": *"[^"]*\.pkg\.tar\.zst"' \
+  | grep -o '"browser_download_url": *"[^"]*\.pkg\.tar\.zst"' | grep -v -- -debug- \
   | head -n1 | sed 's/.*"\(https[^"]*\)"/\1/')
 [ -n "$url" ] || { echo "no package found in latest release of $repo" >&2; exit 1; }
 

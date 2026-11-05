@@ -31,7 +31,7 @@ source=("$_pkgname::git+$url.git#commit=$_commit"
 sha256sums=('SKIP'
             'SKIP'
             'SKIP')
-options=('!lto')
+options=('!lto' '!debug')
 
 prepare() {
   cd "$_pkgname"
